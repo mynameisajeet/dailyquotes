@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Daily Quote</title>
+</head>
+<body>
+    <div class="quote-container" id="quote-container">
+    <div id="quote">Loading...</div>
+    <div id="author"></div>
+    <button id="change-quote">Change Quote</button>
+    <button id="share-quote">Share as Image</button>
+    <div id="spinner" class="spinner" style="display: none;"></div>
+    <div class="footer">Developed by Ajeet Agarwal</div>
+</div>
+
+<div id="export-container" style="display: none;">
+    <div class="export-box">
+        <div id="export-quote">Loading...</div>
+        <div id="export-author"></div>
+        <div class="footer">Developed by Ajeet Agarwal</div>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
