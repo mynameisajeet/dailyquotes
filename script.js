@@ -20,8 +20,10 @@ async function fetchQuote() {
     quoteContainer.innerText = `"${randomQuote.quote}"`;
     authorContainer.innerText = `— ${randomQuote.author}`;
     spinner.style.display = 'none'; // Hide spinner
+}catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
 }
-
 
 
 // Function to share quote as an image
