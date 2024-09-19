@@ -12,9 +12,10 @@ async function fetchQuote() {
             throw new Error('Network response was not ok');
         }
     const data = await response.json();
-    
-    quoteContainer.innerText = `"${data.quote}"`;
-    authorContainer.innerText = `— ${data.author}`;
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const randomQuote = quotes[randomIndex];
+    quoteContainer.innerText = `"${randomQuote.quote}"`;
+    authorContainer.innerText = `— ${randomQuote.author}`;
     spinner.style.display = 'none'; // Hide spinner
 }
 
