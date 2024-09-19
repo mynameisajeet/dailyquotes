@@ -6,13 +6,16 @@ const spinner = document.getElementById('spinner');
 
 // Function to fetch a new quote
 async function fetchQuote() {
+     try {
     spinner.style.display = 'block'; // Show spinner
     const response = await fetch('quotes.json');
-    if (!response.ok) {
-            throw new Error('Network response was not ok');
+         if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
         }
+       
+         
     const data = await response.json();
-    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const randomIndex = Math.floor(Math.random() * data.length);
     const randomQuote = quotes[randomIndex];
     quoteContainer.innerText = `"${randomQuote.quote}"`;
     authorContainer.innerText = `— ${randomQuote.author}`;
