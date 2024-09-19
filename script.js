@@ -7,7 +7,7 @@ const spinner = document.getElementById('spinner');
 // Function to fetch a new quote
 async function fetchQuote() {
     spinner.style.display = 'block'; // Show spinner
-    const response = await fetch('http://api.quotable.io/random');
+    const response = await fetch('https://api.quotable.io/random');
     const data = await response.json();
     quoteContainer.innerText = `"${data.content}"`;
     authorContainer.innerText = `— ${data.author}`;
