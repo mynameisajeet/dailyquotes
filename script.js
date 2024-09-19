@@ -12,9 +12,7 @@ async function fetchQuote() {
             throw new Error('Network response was not ok');
         }
     const data = await response.json();
-    catch (error) {
-        console.error('Error fetching quotes:', error);
-    }
+    
     quoteContainer.innerText = `"${data.content}"`;
     authorContainer.innerText = `— ${data.author}`;
     spinner.style.display = 'none'; // Hide spinner
