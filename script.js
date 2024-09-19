@@ -16,7 +16,7 @@ async function fetchQuote() {
          
     const data = await response.json();
     const randomIndex = Math.floor(Math.random() * data.length);
-    const randomQuote = quotes[randomIndex];
+    const randomQuote = data[randomIndex];
     quoteContainer.innerText = `"${randomQuote.quote}"`;
     authorContainer.innerText = `— ${randomQuote.author}`;
     spinner.style.display = 'none'; // Hide spinner
