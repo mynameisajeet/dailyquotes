@@ -7,13 +7,13 @@ const spinner = document.getElementById('spinner');
 // Function to fetch a new quote
 async function fetchQuote() {
     spinner.style.display = 'block'; // Show spinner
-    const response = await fetch('http://api.quotable.io/random');
+    const response = await fetch('https://raw.githubusercontent.com/mynameisajeet/dailyquotes/refs/heads/main/quotes.json');
     if (!response.ok) {
             throw new Error('Network response was not ok');
         }
     const data = await response.json();
     
-    quoteContainer.innerText = `"${data.content}"`;
+    quoteContainer.innerText = `"${data.quote}"`;
     authorContainer.innerText = `— ${data.author}`;
     spinner.style.display = 'none'; // Hide spinner
 }
