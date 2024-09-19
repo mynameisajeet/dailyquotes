@@ -7,7 +7,7 @@ const spinner = document.getElementById('spinner');
 // Function to fetch a new quote
 async function fetchQuote() {
     spinner.style.display = 'block'; // Show spinner
-    const response = await fetch('https://raw.githubusercontent.com/mynameisajeet/dailyquotes/refs/heads/main/quotes.json');
+    const response = await fetch('quotes.json');
     if (!response.ok) {
             throw new Error('Network response was not ok');
         }
