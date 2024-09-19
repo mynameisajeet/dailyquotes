@@ -6,25 +6,27 @@ const spinner = document.getElementById('spinner');
 
 // Function to fetch a new quote
 async function fetchQuote() {
-     try {
-    spinner.style.display = 'block'; // Show spinner
-    const response = await fetch('quotes.json');
-         if (!response.ok) {
+    try {
+        const response = await fetch('quotes.json');
+        if (!response.ok) {
             throw new Error('Network response was not ok: ' + response.statusText);
         }
-       
-         
-    const data = await response.json();
-    const randomIndex = Math.floor(Math.random() * data.length);
-    const randomQuote = data[randomIndex];
-    quoteContainer.innerText = `"${randomQuote.quote}"`;
-    authorContainer.innerText = `— ${randomQuote.author}`;
-    spinner.style.display = 'none'; // Hide spinner
-}catch (error) {
+        
+        const quotes = await response.json(); // Make sure this line is inside the try block
+
+        if (!Array.isArray(quotes) || quotes.length === 0) {
+            throw new Error('Quotes data is not valid or empty');
+        }
+
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const randomQuote = quotes[randomIndex];
+        
+        document.getElementById('quote').textContent = randomQuote.quote;
+        document.getElementById('author').textContent = `— ${randomQuote.author}`;
+    } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
     }
 }
-
 
 // Function to share quote as an image
 function shareQuote() {
