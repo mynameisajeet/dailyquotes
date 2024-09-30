@@ -21,12 +21,14 @@ async function fetchQuote() {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         const randomQuote = quotes[randomIndex];
         
-        document.getElementById('quote').textContent = randomQuote.quote;
-        document.getElementById('author').textContent = `— ${randomQuote.author}`;
+        document.getElementById('quote').textContent = `"${randomQuote.quote}"`;
+        document.getElementById('author').textContent = `Author— ${randomQuote.author}`;
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
     }
 }
+
+
 
 // Function to share quote as an image
 function shareQuote() {
